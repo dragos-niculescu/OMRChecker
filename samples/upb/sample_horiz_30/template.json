@@ -1,0 +1,41 @@
+{
+  "pageDimensions": [1600, 1600],
+  "bubbleDimensions": [40, 40],
+    "preProcessors": [
+    {
+      "name": "CropOnMarkers",
+      "options": {
+        "relativePath": "omr_marker.jpg",
+        "sheetToMarkerWidthRatio": 10
+      }
+    }
+  ],
+    "fieldBlocks": {
+	"MCQ_Block_0": {
+	    "bubbleValues": ["A","B","C","D","E","F"],
+	    
+	    "direction": "horizontal",
+	    "origin": [654, 120],
+	    "fieldLabels": ["Nr"],
+	    "labelsGap": 40,
+	    "bubblesGap": 88
+	},
+    "MCQ_Block_1": {
+      "bubbleValues": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "direction": "vertical",
+      "fieldLabels": ["q1..30"],
+      "origin": [
+        6,
+        584
+      ],
+      "bubblesGap": 180,
+      "labelsGap": 53
+    }
+  }
+}

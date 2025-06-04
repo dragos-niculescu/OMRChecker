@@ -1,0 +1,26 @@
+{
+    "source_type": "csv",
+    "options": {
+	"answer_key_csv_path": "answer_key.csv",
+	"should_explain_scoring": true
+    },
+    "marking_schemes": {
+	"DEFAULT": { "correct": "1", "incorrect": "-0.1", "unmarked": "0" },
+	"MISTAKE13": {
+	    "questions": ["q13"],
+	    "marking": { "correct": 0, "incorrect": 0, "unmarked": 0 }
+	},
+	"DOUBLE": {
+	    "questions": ["q16", "q17", "q18", "q19"],
+	    "marking": { "correct": 2, "incorrect": -0.2, "unmarked": 0 }
+	},
+	"HALF": {
+	    "questions": ["q2", "q4", "q6", "q8"],
+	    "marking": { "correct": 0.5, "incorrect": -0.1, "unmarked": 0 }
+	},
+	"NUMBER": {
+	    "questions": ["Nr"],
+	    "marking": { "correct": 0, "incorrect": 0, "unmarked": 0 }
+	}
+    }
+}
