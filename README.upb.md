@@ -101,7 +101,7 @@ Add line in /Results/Results.csv with actual filenames and scores before step 7
 
 
 #### Grades with names
-9. To add the grades to the test images: `python3 add_grade.py outputs/Results/Results*.csv`
+9. To add the grades to the test images: `python3 add_grade.py outputs/Results/Results*.csv | tee ./scoring.log`
 9a. check add_grade.py for posible grade adjustment/weighting
 
 10. You will find the processed images with grades in `res/`
