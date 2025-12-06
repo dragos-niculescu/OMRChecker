@@ -1,0 +1,24 @@
+{
+  "pageDimensions": [3200, 1600],
+  "bubbleDimensions": [80, 80],
+    "preProcessors": [
+    {
+      "name": "CropOnMarkers",
+      "options": {
+        "relativePath": "omr_marker.jpg",
+        "sheetToMarkerWidthRatio": 10
+      }
+    }
+  ],
+    "fieldBlocks": {
+	"MCQ_Block_0": {
+	    "bubbleValues": ["A","B","C","D","E","F"],
+	    
+	    "direction": "horizontal",
+	    "origin": [1300, 42],
+	    "fieldLabels": ["Nr"],
+	    "labelsGap": 226,
+	    "bubblesGap": 182
+  }
+}
+}

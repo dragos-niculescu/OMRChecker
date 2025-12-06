@@ -274,6 +274,7 @@ def process_files(
 
         score = 0
         if evaluation_config is not None:
+            # print("DBG", omr_response['Nr']);
             score = evaluate_concatenated_response(
                 omr_response, evaluation_config, file_path, outputs_namespace.paths.evaluation_dir
             )
