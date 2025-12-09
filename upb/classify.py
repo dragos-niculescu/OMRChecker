@@ -26,7 +26,7 @@ dest_dir = "inputs/partial"
 copy_files(source_dir_mcq_block_0, dest_dir)
 
 # 3. Create variant directories and copy/process answer_key.csv
-for variant in ["A", "B", "C", "D", "E", "F"]:
+for variant in ["A", "B", "C", "D", "E", "F", "ERROR"]:
     variant_base_dir = os.path.join("inputs", variant) # Corrected path for variant directories
     os.makedirs(variant_base_dir, exist_ok=True)
     
@@ -66,6 +66,8 @@ image_path_regex = re.compile(r"INFO\s+\(\d+\)\s+Opening image:\s+\'(.*?)\'\s+Re
 # Regex to find the \\\\\\\'Marked\\\\\\\\\' value for \\\\\\\'Nr\\\\\\\\\' from the table
 marked_variant_regex = re.compile(r"│\s*Nr\s*│\s*([A-F])\s*│")
 
+error_variant_regex = re.compile(r"ERROR")
+
 results = []
 current_image = None
 looking_for_variant = False # State to indicate we are looking for a variant after an image
@@ -79,6 +81,13 @@ for line in output.splitlines():
         continue # Start looking for the variant in subsequent lines
     
     if looking_for_variant:
+        error_match = error_variant_regex.search(line)
+        if error_match:
+            print(f"\033[31mERROR: No marked variant found for {current_image}, skipping.\033[0m", file=sys.stderr, flush=True)
+            looking_for_variant = False # Reset state
+            results.append({"File": current_image, "Variant": "ERROR"})
+            current_image = None # Reset for the next image
+            continue
         variant_match = marked_variant_regex.search(line)
         if variant_match:
             variant = variant_match.group(1)

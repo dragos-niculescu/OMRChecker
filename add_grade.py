@@ -10,7 +10,7 @@ for arg in sys.argv[1:]:
 
     # You can then access the data in the dataframe like this:
     for index, row in df.iterrows():
-        file_id = row['file_id']
+        file_id = os.path.basename(row['file_id']).split('.')[0]
         input_path = row['input_path']
         output_path = row['output_path']
         score = row['score'] * 10.0 / 3.0  # 30 questions for 100 points
@@ -18,7 +18,7 @@ for arg in sys.argv[1:]:
         print(f'{file_id} input: {input_path} output: {output_path}  score: {score:.2f}')
 
         filename = os.path.basename(input_path)
-        command = "convert '{}' -background Khaki -pointsize 150 label:'nota {}' +swap -gravity Center -append 'res/{}'".format(input_path, round(score, 1), filename)
+        command = "convert '{}' -background Khaki -pointsize 105 label:'{} nota {}' +swap -gravity Center -append 'res/{}'".format(input_path, file_id, round(score, 1), filename)
 
         process = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
         output, error = process.communicate()
