@@ -4,6 +4,7 @@
 
 1. print PDF with each variant, and prepare the .csv with answer key, as in the examples
    - Marker circles should be all visible; circle should not interfere with bubbles
+   - print using economy setting (washed out blacks). Also, make sure the A/B/C/D cicles are shown in gray so that there will be enough contrast if they use pencils or do not fill completely 
    - CropOnMarkers.py "midh, midw = h1 // 5, w1 // 2" or 
       "midh, midw = h1 // 4, w1 // 2" depending on where in the page the markers are
    - use A4, "fit to page" when printing 
@@ -16,7 +17,8 @@
 		* ADF can be convinced to properly scan from the top if the stack 
 		is tucked in just after the scanner finished a scan swipe. 
     - Document Scanner (in Ubuntu) seetings: all pages from feeder, Text, ADF: face up, head first
-		* ADF is unreliable in separating pages 
+		* ADF is unreliable in separating pages
+    - scan using HP network printers with a feature called "scan to network folder". It needs a samba folder (if anonymous, it requires user:guest password:guest and empty workgroup).  
 
 3. Prepare environment, if necessary. Cleanup. 
 ```
@@ -28,10 +30,10 @@ mkdir res
 
 4. Install the requirements:
 ```
-python3 -m pip install --user opencv-python
-python3 -m pip install --user rich
-python3 -m pip install --user opencv-contrib-python
-python3 -m pip install --user -r requirements.txt
+python3 -m pip install opencv-python
+python3 -m pip install rich
+python3 -m pip install opencv-contrib-python
+python3 -m pip install -r requirements.txt
 ```
 
 
